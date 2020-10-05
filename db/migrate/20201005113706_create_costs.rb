@@ -21,7 +21,7 @@ class CreateCosts < ActiveRecord::Migration[6.0]
       t.integer :key_money                                      # （引越し）礼金
       t.integer :administrative_fee                             # （引越し）事務手数料
       t.integer :other_moves                                    # （引越し）その他
-      t.string  :payment_of_utility_bills_id      , null: false # （光熱費）光熱費の支払の有無
+      t.string  :payment_of_utility_bill_id       , null: false # （光熱費）光熱費の支払の有無
       t.integer :electricity_charges                            # （光熱費）電気代
       t.integer :gas_charges                                    # （光熱費）ガス代
       t.integer :water_charges                                  # （光熱費）水道代
