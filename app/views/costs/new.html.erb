@@ -1,0 +1,751 @@
+<header>
+  自分が行うべき手続きについて把握して、金額が分かる箇所は入力しましょう
+</header>
+
+<div class='main'>
+  <%= form_with model: @cost, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+    <!-- 大項目 税金 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>税金について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>健康保険料</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/kenkouhoken/">?</a>
+              <%= f.collection_select(:health_insurance_premium_id, HealthInsurancePremium.all, :id, :name, {}, {class:"select-box", id:"cost-health-insurance-premium"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :health_insurance_premium_price, class:"price-input", id:"health-insurance-premium-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>年金</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/nenkinzeikin/">?</a>
+              <%= f.collection_select(:pension_id, Pension.all, :id, :name, {}, {class:"select-box", id:"pension"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :pension_price, class:"price-input", id:"pension-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>住民税</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/nenkinzeikin/">?</a>
+              <%= f.collection_select(:resident_tax_id, ResidentTax.all, :id, :name, {}, {class:"select-box", id:"pension"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :resident_tax_price, class:"price-input", id:"resident-tax-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>所得税</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/nenkinzeikin/">?</a>
+              <%= f.collection_select(:income_tax_id, IncomeTax.all, :id, :name, {}, {class:"select-box", id:"income-tax"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :income_tax_price, class:"price-input", id:"income-tax-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :other_taxes, class:"price-input", id:"other-taxes", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+    </div>
+    <!-- 大項目 税金 -->
+
+    <!-- 大項目 生活費 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>生活費について</h2>
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>食費</span></div>
+            <!-- 生活費支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :food_cost, class:"price-input", id:"food-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 生活費支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>消耗品費</span></div>
+            <!-- 生活費支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :expendables_cost, class:"price-input", id:"expendables-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 生活費支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>医療費</span></div>
+            <!-- 生活費支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :medical_cost, class:"price-input", id:"medical-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 生活費支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- 生活費支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_life_costs, class:"price-input", id:"other-life-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 生活費支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 生活費 -->
+
+    <!-- 大項目 引越し -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>引越しについて</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>引越しの必要性</span></div>
+            <!-- 引越しの必要性 -->
+            <div class='procedure'>
+              <span>要否</span><a class="question" href="https://hikkoshizamurai.jp/estimate/simulator/">?</a>
+              <%= f.collection_select(:whether_to_move_id, WhetherToMove.all, :id, :name, {}, {class:"select-box", id:"whether-to-move"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 引越し手続き -->
+            <!-- 引越し費用-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :moving_cost, class:"price-input", id:"moving-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 引越し費用-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>家賃</span></div>
+            <!-- 家賃-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :rent, class:"price-input", id:"rent", placeholder:"例）10000" %>
+            </div>
+            <!-- 家賃-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>敷金</span></div>
+            <!-- 敷金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :security_deposit, class:"price-input", id:"security-deposit", placeholder:"例）10000" %>
+            </div>
+            <!-- 敷金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>礼金</span></div>
+            <!-- 礼金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :key_money, class:"price-input", id:"key-money", placeholder:"例）10000" %>
+            </div>
+            <!-- 礼金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>事務手数料</span></div>
+            <!-- 事務手数料-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :administrative_fee, class:"price-input", id:"administrative-fee", placeholder:"例）10000" %>
+            </div>
+            <!-- 事務手数料-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :other_moves, class:"price-input", id:"other-moves", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 引越し -->
+
+    <!-- 大項目 光熱費 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>光熱費について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>光熱費の支払の必要性</span></div>
+            <!-- 光熱費の支払の必要性 -->
+            <div class='procedure'>
+              <span>要否</span>
+              <%= f.collection_select(:payment_of_utility_bill_id, PaymentOfUtilityBill.all, :id, :name, {}, {class:"select-box", id:"payment-of-utility-bill"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 引越し手続き -->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>電気代</span></div>
+            <!-- 電気代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :electricity_charges, class:"price-input", id:"electricity-charges", placeholder:"例）10000" %>
+            </div>
+            <!-- 電気代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>ガス代</span></div>
+            <!-- ガス代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :gas_charges, class:"price-input", id:"gas-charges", placeholder:"例）10000" %>
+            </div>
+            <!-- ガス代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>水道代</span></div>
+            <!-- 水道代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :water_charges, class:"price-input", id:"water-charges", placeholder:"例）10000" %>
+            </div>
+            <!-- 水道代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_utility_costs, class:"price-input", id:"other-utility-costs", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 光熱費 -->
+
+    <!-- 大項目 車 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>車の所持について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>車の所有の有無</span></div>
+            <!-- 車の所有の有無 -->
+            <div class='procedure'>
+              <span>所有の有無</span>
+              <%= f.collection_select(:car_ownership_id, CarOwnership.all, :id, :name, {}, {class:"select-box", id:"car-ownership"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 車の所有の有無 -->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>ローン料金</span></div>
+            <!-- ローン料金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :loan_monthly_payment, class:"price-input", id:"loan-monthly-payment", placeholder:"例）10000" %>
+            </div>
+            <!-- ローン料金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>駐車場料金</span></div>
+            <!-- 駐車場料金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :parking_cost, class:"price-input", id:"parking-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 駐車場料金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>燃料代</span></div>
+            <!-- 燃料代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :water_cost, class:"price-input", id:"water-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 燃料代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>保険代</span></div>
+            <!-- 保険代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :fuel_cost, class:"price-input", id:"fuel-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 保険代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>車検代</span></div>
+            <!-- 車検代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :vehicle_inspection_fee, class:"price-input", id:"vehicle-inspection-fee", placeholder:"例）10000" %>
+            </div>
+            <!-- 車検代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>自動車税</span></div>
+            <!-- 自動車税-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :car_tax, class:"price-input", id:"car-tax", placeholder:"例）10000" %>
+            </div>
+            <!-- 自動車税-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_cars, class:"price-input", id:"other-cars", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 車 -->
+
+    <!-- 大項目 月額支払 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>月額固定費用について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>交通費</span></div>
+            <!-- 交通費-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :traffic_cost, class:"price-input", id:"traffic-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 交通費-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>携帯料金</span></div>
+            <!-- 携帯料金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :phone_cost, class:"price-input", id:"phone-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 携帯料金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他通信費</span></div>
+            <!-- その他通信費-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_communication_costs, class:"price-input", id:"other-communication-costs", placeholder:"例）10000" %>
+            </div>
+            <!-- その他通信費-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>奨学金</span></div>
+            <!-- 奨学金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :scholarship, class:"price-input", id:"scholarship", placeholder:"例）10000" %>
+            </div>
+            <!-- 奨学金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_monthly_payment, class:"price-input", id:"other-monthly-payment", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 月額支払 -->
+
+    <!-- 大項目 学費 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>学費について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>通学の必要性</span></div>
+            <!-- 通学の必要性 -->
+            <div class='procedure'>
+              <span>要否</span>
+              <%= f.collection_select(:necessity_of_attending_school_id, NecessityOfAttendingSchool.all, :id, :name, {}, {class:"select-box", id:"necessity-of-attending-school"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 通学の必要性 -->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>入学費</span></div>
+            <!-- 入学費-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :admission_cost, class:"price-input", id:"admission-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 入学費-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>学費</span></div>
+            <!-- 学費-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :monthly_tuition, class:"price-input", id:"monthly-tuition", placeholder:"例）10000" %>
+            </div>
+            <!-- 学費-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_tuitions, class:"price-input", id:"other-tuitions", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 学費 -->
+
+    <div class="save-btn-value">
+      <%= f.submit "保存する" ,class:"save-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+</div>
