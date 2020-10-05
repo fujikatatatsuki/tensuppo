@@ -1,0 +1,2 @@
+class Pension < ApplicationRecord
+end

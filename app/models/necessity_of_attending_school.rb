@@ -1,0 +1,2 @@
+class NecessityOfAttendingSchool < ApplicationRecord
+end

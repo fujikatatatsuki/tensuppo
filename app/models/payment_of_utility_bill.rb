@@ -1,0 +1,2 @@
+class PaymentOfUtilityBill < ApplicationRecord
+end

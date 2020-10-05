@@ -1,0 +1,2 @@
+class ResidentTax < ApplicationRecord
+end

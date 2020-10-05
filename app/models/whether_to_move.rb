@@ -1,0 +1,2 @@
+class WhetherToMove < ApplicationRecord
+end

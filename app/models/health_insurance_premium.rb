@@ -1,0 +1,2 @@
+class HealthInsurancePremium < ApplicationRecord
+end

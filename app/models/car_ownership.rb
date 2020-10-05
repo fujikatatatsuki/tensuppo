@@ -1,0 +1,2 @@
+class CarOwnership < ApplicationRecord
+end
