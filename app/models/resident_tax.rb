@@ -1,7 +1,7 @@
-class WhetherToMove < ActiveHash::Base
+class ResidentTax < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
-    { id: 2, name: '引越しの必要がある' },
-    { id: 3, name: '引越しの必要はない' }
+    { id: 2, name: '1月〜5月間に退職する' },
+    { id: 3, name: '6月〜12月間に退職する' }
   ]
 end
