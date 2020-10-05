@@ -1,0 +1,74 @@
+/* リセットCSS */
+body {
+  font-size: 14px
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+/* リセットCSS */
+
+.major-cost {
+  padding: 20px;
+  border-top: 1px outset gray;
+  border-bottom: 1px outset gray;
+}
+
+.mediam-cost {
+  border: 1px solid gray;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 70vw;
+}
+
+.sub-cost {
+  padding: 10px;
+}
+
+.cost-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.procedure {
+  margin: 20px 0;
+  padding-left: 5px;
+}
+.question {
+  background: blue;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.payment {
+  padding-left: 5px;
+  margin: 20px 0;
+}
+
+.save-btn-value {
+  margin-top: 30px;
+}
+
+.field_with_errors {
+  display: contents;
+} 
