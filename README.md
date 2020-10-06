@@ -124,7 +124,7 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 belongs_to_active_hash :car_ownership
 
 
-# traffic_costsテーブル（月額支払い）
+# monthly_paymentsテーブル（月額支払い）
 | traffic_cost                     | integer |             | # 交通費
 | phone_cost                       | integer |             | # 携帯料金
 | other_communication_costs        | integer |             | # その他通信費
@@ -175,7 +175,7 @@ belongs_to :living_costs
 belongs_to :moves
 belongs_to :utility_costs
 belongs_to :car_costs
-belongs_to :traffic_costs
+belongs_to :monthly_payments
 belongs_to :tuitions
 has_one :periods
 belongs_to :users
@@ -200,7 +200,7 @@ belongs_to :living_costs
 belongs_to :moves
 belongs_to :utility_costs
 belongs_to :car_costs
-belongs_to :traffic_costs
+belongs_to :monthly_payments
 belongs_to :tuitions
 has_one :periods
 has_one :total_costs
