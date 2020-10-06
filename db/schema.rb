@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_052649) do
+ActiveRecord::Schema.define(version: 2020_10_06_060543) do
 
   create_table "car_costs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "car_ownership_id", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2020_10_06_052649) do
     t.integer "expendables_cost"
     t.integer "medical_cost"
     t.integer "other_life_costs"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "monthly_payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "traffic_cost"
+    t.integer "phone_cost"
+    t.integer "other_communication_costs"
+    t.integer "scholarship"
+    t.integer "other_monthly_payment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -56,6 +66,15 @@ ActiveRecord::Schema.define(version: 2020_10_06_052649) do
     t.string "income_tax_id", null: false
     t.integer "income_tax_price"
     t.integer "other_taxes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tuitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "necessity_of_attending_school_id", null: false
+    t.integer "admission_cost"
+    t.integer "monthly_tuition"
+    t.integer "other_tuitions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
