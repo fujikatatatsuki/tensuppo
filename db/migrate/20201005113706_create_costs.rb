@@ -34,8 +34,8 @@ class CreateCosts < ActiveRecord::Migration[6.0]
       t.integer :vehicle_inspection_fee                         # （車）車検代
       t.integer :car_tax                                        # （車）車税
       t.integer :other_cars                                     # （車）その他
-      t.integer :traffic_cost                                  # （月額支払）交通費
-      t.integer :phone_cost                                    # （月額支払）携帯料金
+      t.integer :traffic_cost                                   # （月額支払）交通費
+      t.integer :phone_cost                                     # （月額支払）携帯料金
       t.integer :other_communication_costs                      # （月額支払）その他通信費
       t.integer :scholarship                                    # （月額支払）奨学金
       t.integer :debt                                           # （月額支払）借金
