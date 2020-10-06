@@ -38,52 +38,18 @@
 11.データベース設計  
    ER図は、ファイル名：.drawio 参照。
 
-# costsテーブル ## 費用に関するテーブル
-
+# taxesテーブル（税金）
 | Column                           | Type    | Options     |
 |----------------------------------|---------|-------------|
-| health_insurance_premium_id      | string  | null: false | # （税金）健康保険料の手続き
-| health_insurance_premium_price   | integer |             | # （税金）健康保険料支払額
-| pension_id                       | string  | null: false | # （税金）健康保険料支払額
-| pension_price                    | integer |             | # （税金）年金支払額
-| resident_tax_id                  | string  | null: false | # （税金）住民税の手続き
-| resident_tax_price               | integer |             | # （税金）住民税支払額
-| income_tax_id                    | string  | null: false | # （税金）所得税の手続き
-| income_tax_price                 | integer |             | # （税金）所得税支払額
-| other_taxes                      | integer |             | # （税金）その他
-| food_cost                        | integer |             | # （生活費） 食費
-| expendables_cost                 | integer |             | # （生活費）消耗品費
-| medical_cost                     | integer |             | # （生活費）医療費
-| other_life_costs                 | integer |             | # （生活費）その他
-| whether_to_move_id               | string  | null: false | # （引越し）引越しの有無
-| moving_cost                      | integer |             | # （引越し）引越し費用
-| rent                             | integer | null: false | # （引越し）家賃
-| security_deposit                 | integer |             | # （引越し）敷金
-| key_money                        | integer |             | # （引越し）礼金
-| administrative_fee               | integer |             | # （引越し）事務手数料
-| other_moves                      | integer |             | # （引越し）その他
-| payment_of_utility_bill_id       | string  | null: false | # （光熱費）光熱費の支払の有無
-| electricity_charges              | integer |             | # （光熱費）電気代
-| gas_charges                      | integer |             | # （光熱費）ガス代
-| water_charges                    | integer |             | # （光熱費）水道代
-| other_utility _costs             | integer |             | # （光熱費）その他
-| car_ownership_id                 | string  | null: false | # （車）車の所有の有無
-| loan_monthly_payment             | integer |             | # （車）ローン月払い
-| parking_cost                     | integer |             | # （車）駐車場料金
-| water_cost                       | integer |             | # （車）燃料代
-| fuel_cost                        | integer |             | # （車）保険代
-| vehicle_inspection_fee           | integer |             | # （車）車検代
-| car_tax                          | integer |             | # （車）車税
-| other_cars                       | integer |             | # （車）その他
-| traffic_cost                     | integer |             | # （月額支払）交通費
-| phone_cost                       | integer |             | # （月額支払）携帯料金
-| other_communication_costs        | integer |             | # （月額支払）その他通信費
-| scholarship                      | integer |             | # （月額支払）奨学金
-| other_monthly_payment            | integer |             | # （月額支払）その他
-| necessity_of_attending_school_id | string  | null: false | # （学費）通学の必要性
-| admission_cost                   | integer |             | # （学費）入学費
-| monthly_tuition                  | integer |             | # （学費）月学費
-| other_tuitions                   | integer |             | # （学費）その他
+| health_insurance_premium_id      | string  | null: false | # 健康保険料の手続き
+| health_insurance_premium_price   | integer |             | # 健康保険料支払額
+| pension_id                       | string  | null: false | # 健康保険料支払額
+| pension_price                    | integer |             | # 年金支払額
+| resident_tax_id                  | string  | null: false | # 住民税の手続き
+| resident_tax_price               | integer |             | # 住民税支払額
+| income_tax_id                    | string  | null: false | # 所得税の手続き
+| income_tax_price                 | integer |             | # 所得税支払額
+| other_taxes                      | integer |             | # その他
 
 ### Association
 has_one :total_costs
@@ -94,9 +60,93 @@ belongs_to_active_hash :health_insurance_premium
 belongs_to_active_hash :pension
 belongs_to_active_hash :resident_tax
 belongs_to_active_hash :income_tax
+
+
+# living_costsテーブル（生活費）
+| food_cost                        | integer |             | # 食費
+| expendables_cost                 | integer |             | # 消耗品費
+| medical_cost                     | integer |             | # 医療費
+| other_life_costs                 | integer |             | # その他
+
+### Association
+has_one :total_costs
+belongs_to :users
+
+
+# movesテーブル（引越し）
+| whether_to_move_id               | string  | null: false | # 引越しの有無
+| moving_cost                      | integer |             | # 引越し費用
+| rent                             | integer | null: false | # 家賃
+| security_deposit                 | integer |             | # 敷金
+| key_money                        | integer |             | # 礼金
+| administrative_fee               | integer |             | # 事務手数料
+| other_moves                      | integer |             | # その他
+
+### Association
+has_one :total_costs
+belongs_to :users
+
+extend ActiveHash::Associations::ActiveRecordExtensions
 belongs_to_active_hash :whether_to_move
-belongs_to_active_hash :payment_of_utility_bills
+
+
+
+# utility_costsテーブル（光熱費）
+| payment_of_utility_bill_id       | string  | null: false | # 光熱費の支払の有無
+| electricity_charges              | integer |             | # 電気代
+| gas_charges                      | integer |             | # ガス代
+| water_charges                    | integer |             | # 水道代
+| other_utility _costs             | integer |             | # その他
+
+### Association
+has_one :total_costs
+belongs_to :users
+
+extend ActiveHash::Associations::ActiveRecordExtensions
+belongs_to_active_hash :payment_of_utility_bill
+
+
+# car_costsテーブル（車）
+| car_ownership_id                 | string  | null: false | # 車の所有の有無
+| loan_monthly_payment             | integer |             | # ローン月払い
+| parking_cost                     | integer |             | # 駐車場料金
+| water_cost                       | integer |             | # 燃料代
+| fuel_cost                        | integer |             | # 保険代
+| vehicle_inspection_fee           | integer |             | # 車検代
+| car_tax                          | integer |             | # 車税
+| other_cars                       | integer |             | # その他
+
+### Association
+has_one :total_costs
+belongs_to :users
+
+extend ActiveHash::Associations::ActiveRecordExtensions
 belongs_to_active_hash :car_ownership
+
+
+# traffic_costsテーブル（月額支払い）
+| traffic_cost                     | integer |             | # 交通費
+| phone_cost                       | integer |             | # 携帯料金
+| other_communication_costs        | integer |             | # その他通信費
+| scholarship                      | integer |             | # 奨学金
+| other_monthly_payment            | integer |             | # その他
+
+### Association
+has_one :total_costs
+belongs_to :users
+
+
+# tuitionsテーブル（学費）
+| necessity_of_attending_school_id | string  | null: false | # （学費）通学の必要性
+| admission_cost                   | integer |             | # （学費）入学費
+| monthly_tuition                  | integer |             | # （学費）月学費
+| other_tuitions                   | integer |             | # （学費）その他
+
+### Association
+has_one :total_costs
+belongs_to :users
+
+extend ActiveHash::Associations::ActiveRecordExtensions
 belongs_to_active_hash :necessity_of_attending_school
 
 
@@ -120,7 +170,13 @@ belongs_to :users
 | total_cost | string     | null: false                    | # 転職までの総費用
 
 ### Association
-belongs_to :costs
+belongs_to :taxes
+belongs_to :living_costs
+belongs_to :moves
+belongs_to :utility_costs
+belongs_to :car_costs
+belongs_to :traffic_costs
+belongs_to :tuitions
 has_one :periods
 belongs_to :users
 
@@ -139,7 +195,13 @@ belongs_to :users
 | birthday                    | date   | null: false | # 生年月日
 
 ### Association
-has_one :costs
+belongs_to :taxes
+belongs_to :living_costs
+belongs_to :moves
+belongs_to :utility_costs
+belongs_to :car_costs
+belongs_to :traffic_costs
+belongs_to :tuitions
 has_one :periods
 has_one :total_costs
 
