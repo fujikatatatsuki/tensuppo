@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2020_10_05_113706) do
     t.integer "phone_cost"
     t.integer "other_communication_costs"
     t.integer "scholarship"
-    t.integer "debt"
     t.integer "other_monthly_payment"
     t.string "necessity_of_attending_school_id", null: false
     t.integer "admission_cost"

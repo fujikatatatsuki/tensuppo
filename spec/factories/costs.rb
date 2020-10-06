@@ -42,7 +42,6 @@ FactoryBot.define do
     phone_cost                       { 10000 }  # （月額支払）携帯料金
     other_communication_costs        { 10000 }  # （月額支払）その他通信費
     scholarship                      { 10000 }  # （月額支払）奨学金
-    debt                             { 10000 }  # （月額支払）借金
     other_monthly_payment            { 0 }      # （月額支払）その他
 
     necessity_of_attending_school_id { 1 }      # （学費）通学の必要性

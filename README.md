@@ -79,7 +79,6 @@
 | phone_cost                       | integer |             | # （月額支払）携帯料金
 | other_communication_costs        | integer |             | # （月額支払）その他通信費
 | scholarship                      | integer |             | # （月額支払）奨学金
-| debt                             | integer |             | # （月額支払）借金
 | other_monthly_payment            | integer |             | # （月額支払）その他
 | necessity_of_attending_school_id | string  | null: false | # （学費）通学の必要性
 | admission_cost                   | integer |             | # （学費）入学費

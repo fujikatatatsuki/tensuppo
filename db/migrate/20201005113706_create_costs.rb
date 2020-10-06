@@ -38,7 +38,6 @@ class CreateCosts < ActiveRecord::Migration[6.0]
       t.integer :phone_cost                                     # （月額支払）携帯料金
       t.integer :other_communication_costs                      # （月額支払）その他通信費
       t.integer :scholarship                                    # （月額支払）奨学金
-      t.integer :debt                                           # （月額支払）借金
       t.integer :other_monthly_payment                          # （月額支払）その他
       t.string  :necessity_of_attending_school_id , null: false # （学費）通学の必要性
       t.integer :admission_cost                                 # （学費）入学費
