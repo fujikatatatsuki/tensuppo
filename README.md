@@ -96,7 +96,7 @@ belongs_to_active_hash :whether_to_move
 | electricity_charges              | integer |             | # 電気代
 | gas_charges                      | integer |             | # ガス代
 | water_charges                    | integer |             | # 水道代
-| other_utility _costs             | integer |             | # その他
+| other_utility_costs              | integer |             | # その他
 
 ### Association
 has_one :total_costs
