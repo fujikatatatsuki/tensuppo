@@ -1,0 +1,2 @@
+class UtilityCost < ApplicationRecord
+end

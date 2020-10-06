@@ -1,0 +1,2 @@
+class LivingCost < ApplicationRecord
+end
