@@ -3,11 +3,11 @@ class LivingCostsController < ApplicationController
   end
 
   def new
-    @living_cost = Living_Cost.new
+    @living_cost = LivingCost.new
   end
 
   def create
-    @living_cost = Living_Cost.new(living_cost_params)
+    @living_cost = LivingCost.new(living_cost_params)
     if @living_cost.save
       redirect_to root_path
     else

@@ -3,11 +3,11 @@ class UtilityCostsController < ApplicationController
   end
 
   def new
-    @utility_cost = Utility_Cost.new
+    @utility_cost = UtilityCost.new
   end
 
   def create
-    @utility_cost = Utility_Cost.new(utility_cost_params)
+    @utility_cost = UtilityCost.new(utility_cost_params)
     if @utility_cost.save
       redirect_to root_path
     else

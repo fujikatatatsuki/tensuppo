@@ -3,11 +3,11 @@ class MonthlyPaymentsController < ApplicationController
   end
 
   def new
-    @monthly_payment = Monthly_Payment.new
+    @monthly_payment = MonthlyPayment.new
   end
 
   def create
-    @monthly_payment = Monthly_Payment.new(monthly_payment_params)
+    @monthly_payment = MonthlyPayment.new(monthly_payment_params)
     if @monthly_payment.save
       redirect_to root_path
     else

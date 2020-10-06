@@ -3,11 +3,11 @@ class CarCostsController < ApplicationController
   end
 
   def new
-    @car_cost = Car_Cost.new
+    @car_cost = CarCost.new
   end
 
   def create
-    @car_cost = Car_Cost.new(car_cost_params)
+    @car_cost = CarCost.new(car_cost_params)
     if @car_cost.save
       redirect_to root_path
     else
