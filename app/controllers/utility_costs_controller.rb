@@ -1,0 +1,2 @@
+class UtilityCostsController < ApplicationController
+end

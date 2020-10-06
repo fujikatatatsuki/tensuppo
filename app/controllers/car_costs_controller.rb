@@ -1,0 +1,2 @@
+class CarCostsController < ApplicationController
+end

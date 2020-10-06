@@ -1,0 +1,2 @@
+module LivingCostsHelper
+end

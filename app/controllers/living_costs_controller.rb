@@ -1,0 +1,2 @@
+class LivingCostsController < ApplicationController
+end
