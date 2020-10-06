@@ -1,2 +1,0 @@
-class TrafficCost < ApplicationRecord
-end
