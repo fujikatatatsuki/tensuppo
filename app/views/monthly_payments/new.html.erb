@@ -1,0 +1,109 @@
+<header>
+  自分が行うべき手続きについて把握して、金額が分かる箇所は入力しましょう
+</header>
+
+<div class='main'>
+  <%= form_with model: @monthly_payment, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+    <!-- 大項目 月額支払 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>月額固定費用について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>交通費</span></div>
+            <!-- 交通費-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :traffic_cost, class:"price-input", id:"traffic-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 交通費-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>携帯料金</span></div>
+            <!-- 携帯料金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :phone_cost, class:"price-input", id:"phone-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 携帯料金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他通信費</span></div>
+            <!-- その他通信費-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_communication_costs, class:"price-input", id:"other-communication-costs", placeholder:"例）10000" %>
+            </div>
+            <!-- その他通信費-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>奨学金</span></div>
+            <!-- 奨学金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :scholarship, class:"price-input", id:"scholarship", placeholder:"例）10000" %>
+            </div>
+            <!-- 奨学金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_monthly_payment, class:"price-input", id:"other-monthly-payment", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 月額支払 -->
+
+    <div class="save-btn-value">
+      <%= f.submit "保存する" ,class:"save-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+</div>
