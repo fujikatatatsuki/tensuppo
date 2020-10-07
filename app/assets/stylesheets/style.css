@@ -15,7 +15,45 @@ ul,li {
 }
 /* リセットCSS */
 
-.major-cost {
+.btns {
+  display: flex;
+  justify-content: center;
+}
+
+.new-btn {
+  background-color:white;
+  border: solid 1px;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  width: 400px;
+}
+
+.periods-btn {
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 30vw;
+}
+
+
+.total-costs-btn {
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 30vw;
+}
+
+.cost-btn  {
+  height: 50px;
+  list-style: none;
+  margin: 10px 10px;
+}
+
+
+/* .major-cost {
   padding: 20px;
   border-top: 1px outset gray;
   border-bottom: 1px outset gray;
@@ -41,6 +79,7 @@ ul,li {
   margin: 20px 0;
   padding-left: 5px;
 }
+
 .question {
   background: blue;
   margin-left: 8px;
@@ -50,6 +89,7 @@ ul,li {
   font-size: 12px;
   font-weight: bold;
 }
+
 .indispensable {
   background: #ea352d;
   margin-left: 8px;
@@ -71,4 +111,4 @@ ul,li {
 
 .field_with_errors {
   display: contents;
-} 
+} */

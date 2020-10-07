@@ -1,12 +1,39 @@
-このアプリは、転職する時に行う必要がある手続きを管理してくれるアプリケーションです。
-このアプリ一つで、転職に必要な手続きや、転職までに必要な費用の見積もりをしてくれます。
-早速下記リンクをクリックして、必要な手続きと費用の計算をしよう！！
-<ul>
-  <li><%= link_to '税金について', new_tax_path, class:"new-btn" %></li>
-  <li><%= link_to '生活費について', new_living_cost_path, class:"new-btn" %></li>
-  <li><%= link_to '引越しについて', new_move_path, class:"new-btn" %></li>
-  <li><%= link_to '光熱費について', new_utility_cost_path, class:"new-btn" %></li>
-  <li><%= link_to '車について', new_car_cost_path, class:"new-btn" %></li>
-  <li><%= link_to '月額支払いについて', new_monthly_payment_path, class:"new-btn" %></li>
-  <li><%= link_to '学費について', new_tuition_path, class:"new-btn" %></li>
-</ul>
+<div>
+  <p>このアプリは、転職する時に行う必要がある手続きを管理してくれるアプリケーションです。</p>
+  <p>このアプリ一つで、転職に必要な手続きや、転職までに必要な費用の見積もりをしてくれます。</p>
+  <p>早速下記リンクをクリックして、必要な手続きと費用の計算をしよう！！</p>
+</div>
+<div class='btns'>
+<%# タスク・金額入力機能へのリンク %>
+  <div class='costs-btn'>
+    <div class='cost-btn'>
+      <%= link_to '税金について', new_tax_path, class:"new-btn" %></div>
+    <div class='cost-btn'>
+      <%= link_to '生活費について', new_living_cost_path, class:"new-btn" %></div>
+    <div class='cost-btn'>
+      <%= link_to '引越しについて', new_move_path, class:"new-btn" %></div>
+    <div class='cost-btn'>
+      <%= link_to '光熱費について', new_utility_cost_path, class:"new-btn" %></div>
+    <div class='cost-btn'>
+      <%= link_to '車について', new_car_cost_path, class:"new-btn" %></div>
+    <div class='cost-btn'>
+      <%= link_to '月額支払いについて', new_monthly_payment_path, class:"new-btn" %></div>
+    <div class='cost-btn'>
+      <%= link_to '学費について', new_tuition_path, class:"new-btn" %></div>
+  </div>
+<%#/ タスク・金額入力機能へのリンク %>
+
+<%# 期間算出機能へのリンク %>
+  <div class='periods-btn'>
+    <div class='cost-btn'>
+      <%= link_to '期間を入力する', '##', class:"new-btn" %></div>
+  </div>
+<%#/ 期間算出機能へのリンク %>
+
+<%# 期間算出機能へのリンク %>
+  <div class='total-costs-btn'>
+    <div class='cost-btn'>
+      <%= link_to '費用を算出する', '##', class:"new-btn" %></div>
+  </div>
+<%#/ 期間算出機能へのリンク %>
+</div>
