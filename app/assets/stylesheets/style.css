@@ -53,7 +53,7 @@ ul,li {
 }
 
 
-/* .major-cost {
+.major-cost {
   padding: 20px;
   border-top: 1px outset gray;
   border-bottom: 1px outset gray;
@@ -106,9 +106,9 @@ ul,li {
 }
 
 .save-btn-value {
-  margin-top: 30px;
+  margin: 30px 0px;
 }
 
 .field_with_errors {
   display: contents;
-} */
+}
