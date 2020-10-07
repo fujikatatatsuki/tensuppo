@@ -1,0 +1,109 @@
+<header>
+  自分が行うべき手続きについて把握して、金額が分かる箇所は入力しましょう
+</header>
+
+<div class='main'>
+  <%= form_with model: @utility_cost, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+    <!-- 大項目 光熱費 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>光熱費について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>光熱費の支払の必要性</span></div>
+            <!-- 光熱費の支払の必要性 -->
+            <div class='procedure'>
+              <span>要否</span>
+              <%= f.collection_select(:payment_of_utility_bill_id, PaymentOfUtilityBill.all, :id, :name, {}, {class:"select-box", id:"payment-of-utility-bill"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 引越し手続き -->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>電気代</span></div>
+            <!-- 電気代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :electricity_charges, class:"price-input", id:"electricity-charges", placeholder:"例）10000" %>
+            </div>
+            <!-- 電気代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>ガス代</span></div>
+            <!-- ガス代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :gas_charges, class:"price-input", id:"gas-charges", placeholder:"例）10000" %>
+            </div>
+            <!-- ガス代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>水道代</span></div>
+            <!-- 水道代-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :water_charges, class:"price-input", id:"water-charges", placeholder:"例）10000" %>
+            </div>
+            <!-- 水道代-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/月)</span>
+              <%= f.text_field :other_utility_costs, class:"price-input", id:"other-utility-costs", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 光熱費 -->
+
+    <div class="save-btn-value">
+      <%= f.submit "保存する" ,class:"save-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+</div>
