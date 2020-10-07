@@ -1,0 +1,137 @@
+<header>
+  自分が行うべき手続きについて把握して、金額が分かる箇所は入力しましょう
+</header>
+
+<div class='main'>
+  <%= form_with model: @tax, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+    <!-- 大項目 税金 -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>税金について</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>健康保険料</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/kenkouhoken/">?</a>
+              <%= f.collection_select(:health_insurance_premium_id, HealthInsurancePremium.all, :id, :name, {}, {class:"select-box", id:"cost-health-insurance-premium"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :health_insurance_premium_price, class:"price-input", id:"health-insurance-premium-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>年金</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/nenkinzeikin/">?</a>
+              <%= f.collection_select(:pension_id, Pension.all, :id, :name, {}, {class:"select-box", id:"pension"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :pension_price, class:"price-input", id:"pension-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>住民税</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/nenkinzeikin/">?</a>
+              <%= f.collection_select(:resident_tax_id, ResidentTax.all, :id, :name, {}, {class:"select-box", id:"pension"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :resident_tax_price, class:"price-input", id:"resident-tax-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>所得税</span></div>
+            <!-- 税金手続き -->
+            <div class='procedure'>
+              <span>手続き</span><a class="question" href="https://doda.jp/guide/naiteitaisyoku/nenkinzeikin/">?</a>
+              <%= f.collection_select(:income_tax_id, IncomeTax.all, :id, :name, {}, {class:"select-box", id:"income-tax"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 税金手続き -->
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :income_tax_price, class:"price-input", id:"income-tax-price", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- 税金支払額-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :other_taxes, class:"price-input", id:"other-taxes", placeholder:"例）10000" %>
+            </div>
+            <!-- 税金支払額-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+    </div>
+    <!-- 大項目 税金 -->
+
+    <div class="save-btn-value">
+      <%= f.submit "保存する" ,class:"save-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+</div>
