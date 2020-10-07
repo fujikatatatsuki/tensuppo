@@ -1,0 +1,134 @@
+<header>
+  自分が行うべき手続きについて把握して、金額が分かる箇所は入力しましょう
+</header>
+
+<div class='main'>
+  <%= form_with model: @move, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+    <!-- 大項目 引越し -->
+    <div class='major-cost'>
+      <h2 class='costs-title'>引越しについて</h2>
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>引越しの必要性</span></div>
+            <!-- 引越しの必要性 -->
+            <div class='procedure'>
+              <span>要否</span><a class="question" href="https://hikkoshizamurai.jp/estimate/simulator/">?</a>
+              <%= f.collection_select(:whether_to_move_id, WhetherToMove.all, :id, :name, {}, {class:"select-box", id:"whether-to-move"}) %>
+              <span class="indispensable">必須</span>
+            </div>
+            <!-- 引越し手続き -->
+            <!-- 引越し費用-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :moving_cost, class:"price-input", id:"moving-cost", placeholder:"例）10000" %>
+            </div>
+            <!-- 引越し費用-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>家賃</span></div>
+            <!-- 家賃-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :rent, class:"price-input", id:"rent", placeholder:"例）10000" %>
+            </div>
+            <!-- 家賃-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>敷金</span></div>
+            <!-- 敷金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :security_deposit, class:"price-input", id:"security-deposit", placeholder:"例）10000" %>
+            </div>
+            <!-- 敷金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>礼金</span></div>
+            <!-- 礼金-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :key_money, class:"price-input", id:"key-money", placeholder:"例）10000" %>
+            </div>
+            <!-- 礼金-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>事務手数料</span></div>
+            <!-- 事務手数料-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :administrative_fee, class:"price-input", id:"administrative-fee", placeholder:"例）10000" %>
+            </div>
+            <!-- 事務手数料-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+
+        <!-- 中項目 -->
+        <div class='mediam-cost'>
+          <!-- 小項目 -->
+          <div class='sub-cost'>
+            <!-- 何について書くのか -->
+            <div class='cost-title'><span>その他</span></div>
+            <!-- その他-->
+            <div class='payment'>
+              <span>支払額</span>
+              <span class="cost-yen">(¥/回)</span>
+              <%= f.text_field :other_moves, class:"price-input", id:"other-moves", placeholder:"例）10000" %>
+            </div>
+            <!-- その他-->
+          </div>
+          <!-- 小項目 -->
+        </div>
+        <!-- 中項目 -->
+    </div>
+    <!-- 大項目 引越し -->
+
+    <div class="save-btn-value">
+      <%= f.submit "保存する" ,class:"save-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+</div>

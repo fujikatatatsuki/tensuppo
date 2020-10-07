@@ -19,6 +19,6 @@ class MovesController < ApplicationController
 
   def move_params
 
-    params.require(:cost).permit(:whether_to_move_id, :moving_cost, :rent, :security_deposit, :key_money, :administrative_fee, :other_moves)
+    params.require(:move).permit(:whether_to_move_id, :moving_cost, :rent, :security_deposit, :key_money, :administrative_fee, :other_moves)
   end
 end
