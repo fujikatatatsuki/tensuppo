@@ -39,17 +39,18 @@
    ER図は、ファイル名：.drawio 参照。
 
 # taxesテーブル（税金）
+
 | Column                           | Type    | Options     |
 |----------------------------------|---------|-------------|
 | health_insurance_premium_id      | string  | null: false | # 健康保険料の手続き
-| health_insurance_premium_price   | integer |             | # 健康保険料支払額
+| health_insurance_premium_price   | integer | null: false | # 健康保険料支払額
 | pension_id                       | string  | null: false | # 健康保険料支払額
-| pension_price                    | integer |             | # 年金支払額
+| pension_price                    | integer | null: false | # 年金支払額
 | resident_tax_id                  | string  | null: false | # 住民税の手続き
-| resident_tax_price               | integer |             | # 住民税支払額
+| resident_tax_price               | integer | null: false | # 住民税支払額
 | income_tax_id                    | string  | null: false | # 所得税の手続き
-| income_tax_price                 | integer |             | # 所得税支払額
-| other_taxes                      | integer |             | # その他
+| income_tax_price                 | integer | null: false | # 所得税支払額
+| other_taxes                      | integer | null: false | # その他
 
 ### Association
 has_one :total_costs
@@ -63,10 +64,13 @@ belongs_to_active_hash :income_tax
 
 
 # living_costsテーブル（生活費）
-| food_cost                        | integer |             | # 食費
-| expendables_cost                 | integer |             | # 消耗品費
-| medical_cost                     | integer |             | # 医療費
-| other_life_costs                 | integer |             | # その他
+
+| Column                           | Type    | Options     |
+|----------------------------------|---------|-------------|
+| food_cost                        | integer | null: false | # 食費
+| expendables_cost                 | integer | null: false | # 消耗品費
+| medical_cost                     | integer | null: false | # 医療費
+| other_life_costs                 | integer | null: false | # その他
 
 ### Association
 has_one :total_costs
@@ -74,13 +78,16 @@ belongs_to :users
 
 
 # movesテーブル（引越し）
+
+| Column                           | Type    | Options     |
+|----------------------------------|---------|-------------|
 | whether_to_move_id               | string  | null: false | # 引越しの有無
-| moving_cost                      | integer |             | # 引越し費用
+| moving_cost                      | integer | null: false | # 引越し費用
 | rent                             | integer | null: false | # 家賃
-| security_deposit                 | integer |             | # 敷金
-| key_money                        | integer |             | # 礼金
-| administrative_fee               | integer |             | # 事務手数料
-| other_moves                      | integer |             | # その他
+| security_deposit                 | integer | null: false | # 敷金
+| key_money                        | integer | null: false | # 礼金
+| administrative_fee               | integer | null: false | # 事務手数料
+| other_moves                      | integer | null: false | # その他
 
 ### Association
 has_one :total_costs
@@ -92,11 +99,14 @@ belongs_to_active_hash :whether_to_move
 
 
 # utility_costsテーブル（光熱費）
+
+| Column                           | Type    | Options     |
+|----------------------------------|---------|-------------|
 | payment_of_utility_bill_id       | string  | null: false | # 光熱費の支払の有無
-| electricity_charges              | integer |             | # 電気代
-| gas_charges                      | integer |             | # ガス代
-| water_charges                    | integer |             | # 水道代
-| other_utility_costs              | integer |             | # その他
+| electricity_charges              | integer | null: false | # 電気代
+| gas_charges                      | integer | null: false | # ガス代
+| water_charges                    | integer | null: false | # 水道代
+| other_utility_costs              | integer | null: false | # その他
 
 ### Association
 has_one :total_costs
@@ -107,14 +117,17 @@ belongs_to_active_hash :payment_of_utility_bill
 
 
 # car_costsテーブル（車）
+
+| Column                           | Type    | Options     |
+|----------------------------------|---------|-------------|
 | car_ownership_id                 | string  | null: false | # 車の所有の有無
-| loan_monthly_payment             | integer |             | # ローン月払い
-| parking_cost                     | integer |             | # 駐車場料金
-| water_cost                       | integer |             | # 燃料代
-| fuel_cost                        | integer |             | # 保険代
-| vehicle_inspection_fee           | integer |             | # 車検代
-| car_tax                          | integer |             | # 車税
-| other_cars                       | integer |             | # その他
+| loan_monthly_payment             | integer | null: false | # ローン月払い
+| parking_cost                     | integer | null: false | # 駐車場料金
+| water_cost                       | integer | null: false | # 燃料代
+| fuel_cost                        | integer | null: false | # 保険代
+| vehicle_inspection_fee           | integer | null: false | # 車検代
+| car_tax                          | integer | null: false | # 車税
+| other_cars                       | integer | null: false | # その他
 
 ### Association
 has_one :total_costs
@@ -125,11 +138,14 @@ belongs_to_active_hash :car_ownership
 
 
 # monthly_paymentsテーブル（月額支払い）
-| traffic_cost                     | integer |             | # 交通費
-| phone_cost                       | integer |             | # 携帯料金
-| other_communication_costs        | integer |             | # その他通信費
-| scholarship                      | integer |             | # 奨学金
-| other_monthly_payment            | integer |             | # その他
+
+| Column                           | Type    | Options     |
+|----------------------------------|---------|-------------|
+| traffic_cost                     | integer | null: false | # 交通費
+| phone_cost                       | integer | null: false | # 携帯料金
+| other_communication_costs        | integer | null: false | # その他通信費
+| scholarship                      | integer | null: false | # 奨学金
+| other_monthly_payment            | integer | null: false | # その他
 
 ### Association
 has_one :total_costs
@@ -137,10 +153,13 @@ belongs_to :users
 
 
 # tuitionsテーブル（学費）
+
+| Column                           | Type    | Options     |
+|----------------------------------|---------|-------------|
 | necessity_of_attending_school_id | string  | null: false | # （学費）通学の必要性
-| admission_cost                   | integer |             | # （学費）入学費
-| monthly_tuition                  | integer |             | # （学費）月学費
-| other_tuitions                   | integer |             | # （学費）その他
+| admission_cost                   | integer | null: false | # （学費）入学費
+| monthly_tuition                  | integer | null: false | # （学費）月学費
+| other_tuitions                   | integer | null: false | # （学費）その他
 
 ### Association
 has_one :total_costs

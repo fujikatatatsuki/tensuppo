@@ -14,77 +14,77 @@ ActiveRecord::Schema.define(version: 2020_10_06_060543) do
 
   create_table "car_costs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "car_ownership_id", null: false
-    t.integer "loan_monthly_payment"
-    t.integer "parking_cost"
-    t.integer "water_cost"
-    t.integer "fuel_cost"
-    t.integer "vehicle_inspection_fee"
-    t.integer "car_tax"
-    t.integer "other_cars"
+    t.integer "loan_monthly_payment", null: false
+    t.integer "parking_cost", null: false
+    t.integer "water_cost", null: false
+    t.integer "fuel_cost", null: false
+    t.integer "vehicle_inspection_fee", null: false
+    t.integer "car_tax", null: false
+    t.integer "other_cars", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "living_costs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "food_cost"
-    t.integer "expendables_cost"
-    t.integer "medical_cost"
-    t.integer "other_life_costs"
+    t.integer "food_cost", null: false
+    t.integer "expendables_cost", null: false
+    t.integer "medical_cost", null: false
+    t.integer "other_life_costs", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "monthly_payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "traffic_cost"
-    t.integer "phone_cost"
-    t.integer "other_communication_costs"
-    t.integer "scholarship"
-    t.integer "other_monthly_payment"
+    t.integer "traffic_cost", null: false
+    t.integer "phone_cost", null: false
+    t.integer "other_communication_costs", null: false
+    t.integer "scholarship", null: false
+    t.integer "other_monthly_payment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "moves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "whether_to_move_id", null: false
-    t.integer "moving_cost"
-    t.integer "rent"
-    t.integer "security_deposit"
-    t.integer "key_money"
-    t.integer "administrative_fee"
-    t.integer "other_moves"
+    t.integer "moving_cost", null: false
+    t.integer "rent", null: false
+    t.integer "security_deposit", null: false
+    t.integer "key_money", null: false
+    t.integer "administrative_fee", null: false
+    t.integer "other_moves", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "taxes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "health_insurance_premium_id", null: false
-    t.integer "health_insurance_premium_price"
+    t.integer "health_insurance_premium_price", null: false
     t.string "pension_id", null: false
-    t.integer "pension_price"
+    t.integer "pension_price", null: false
     t.string "resident_tax_id", null: false
-    t.integer "resident_tax_price"
+    t.integer "resident_tax_price", null: false
     t.string "income_tax_id", null: false
-    t.integer "income_tax_price"
-    t.integer "other_taxes"
+    t.integer "income_tax_price", null: false
+    t.integer "other_taxes", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tuitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "necessity_of_attending_school_id", null: false
-    t.integer "admission_cost"
-    t.integer "monthly_tuition"
-    t.integer "other_tuitions"
+    t.integer "admission_cost", null: false
+    t.integer "monthly_tuition", null: false
+    t.integer "other_tuitions", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "utility_costs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "payment_of_utility_bill_id", null: false
-    t.integer "electricity_charges"
-    t.integer "gas_charges"
-    t.integer "water_charges"
-    t.integer "other_utility_costs"
+    t.integer "electricity_charges", null: false
+    t.integer "gas_charges", null: false
+    t.integer "water_charges", null: false
+    t.integer "other_utility_costs", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
