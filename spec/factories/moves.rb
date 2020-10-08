@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :move do
-    whether_to_move_id               { 1 }      # 引越しの有無
+    whether_to_move_id               { 2 }      # 引越しの有無
     moving_cost                      { 10000 }  # 引越し費用
     rent                             { 10000 }  # 家賃
     security_deposit                 { 10000 }  # 敷金

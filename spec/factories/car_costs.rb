@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :car_cost do
-    car_ownership_id                 { 1 }      # （車）車の所有の有無
+    car_ownership_id                 { 2 }      # （車）車の所有の有無
     loan_monthly_payment             { 10000 }  # （車）ローン月払い
     parking_cost                     { 10000 }  # （車）駐車場料金
     water_cost                       { 10000 }  # （車）燃料代
