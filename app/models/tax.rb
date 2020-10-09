@@ -14,6 +14,15 @@ class Tax < ApplicationRecord
     validates :income_tax_id
   end
 
+  # 共通で、空の投稿を保存できないようにする
+  with_options presence: true do
+    validates :health_insurance_premium_price
+    validates :pension_price
+    validates :resident_tax_price
+    validates :income_tax_price
+    validates :other_taxes
+  end
+
   # 半角数字のみ入力可能
   with_options format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' } do
     validates :health_insurance_premium_price

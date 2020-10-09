@@ -8,6 +8,16 @@ class Move < ApplicationRecord
     validates :whether_to_move_id
     end
 
+  # 共通で、空の投稿を保存できないようにする
+  with_options presence: true do
+    validates :moving_cost
+    validates :rent
+    validates :security_deposit
+    validates :key_money
+    validates :administrative_fee
+    validates :other_moves
+    end
+
   # 半角数字のみ入力可能
   with_options format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' } do
     validates :moving_cost

@@ -8,6 +8,13 @@ class Tuition < ApplicationRecord
     validates :necessity_of_attending_school_id
   end
 
+  # 共通で、空の投稿を保存できないようにする
+  with_options presence: true do
+    validates :admission_cost
+    validates :monthly_tuition
+    validates :other_tuitions
+  end
+
   # 半角数字のみ入力可能
   with_options format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' } do
     validates :admission_cost
